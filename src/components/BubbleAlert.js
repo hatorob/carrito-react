@@ -12,10 +12,18 @@ const styles = {
 }
 
 class BubbleAlert extends Component {
+
+    //Metodo para obtener el número que corresponde mostrar al usuario
+    getNumber(n) {
+        if(!n) { return ' ' }
+        return n > 9 ? '9+' : n;
+    }
+
     render() {
+        const { value } = this.props;
         return(
             <span style={styles.bubbleAlert}>
-                5
+                {this.getNumber(value)}
             </span>
         );
     }
