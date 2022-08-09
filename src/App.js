@@ -11,9 +11,8 @@ class App extends Component {
       { name: 'Arbejas', price: 2500, img: '/productos/arbejas.jpg' },
       { name: 'Lechuga', price: 500, img: '/productos/lechuga.jpg' },
     ],
-    carro: [
-      
-    ],
+    carro: [],
+    esCarroVisible: false,
   }
 
   agregarAlCarro = (producto) => {
@@ -29,7 +28,6 @@ class App extends Component {
       : x)
       return  this.setState({carro: newCarro});
     }
-
     return this.setState({
       carro: this.state.carro.concat({
         ...producto,
@@ -38,11 +36,16 @@ class App extends Component {
     });
   }
 
+  mostrarCarro = () => {
+    this.setState({ esCarroVisible: !this.state.esCarroVisible})
+  }
+
   render() {
     console.log(this.state.carro);
+    const { esCarroVisible } = this.state;
     return(
       <div>
-       <Navbar carro={this.state.carro} /> 
+       <Navbar carro={this.state.carro} esCarroVisible={esCarroVisible} mostrarCarro={this.mostrarCarro}/> 
         <Layout>
           <Title />
           <Productos 
