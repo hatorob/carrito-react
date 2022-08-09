@@ -12,7 +12,7 @@ class App extends Component {
       { name: 'Lechuga', price: 500, img: '/productos/lechuga.jpg' },
     ],
     carro: [
-      //{ name: 'Tomate', price: 1500, img: '/productos/tomate.jpg', cantidad: 1 },
+      
     ],
   }
 
@@ -42,7 +42,7 @@ class App extends Component {
     console.log(this.state.carro);
     return(
       <div>
-       <Navbar /> 
+       <Navbar carro={this.state.carro} /> 
         <Layout>
           <Title />
           <Productos 
